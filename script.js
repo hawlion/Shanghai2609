@@ -120,9 +120,23 @@ const places = [
   {
     tag: "Lunch · Shanghai",
     title: "龙凤荟 / 용봉회",
-    image: "assets/images/xiaolongbao.jpg",
-    alt: "샤오롱바오",
+    image: "assets/images/yongfenghui-dim-sum.jpg",
+    alt: "용봉회 딤섬",
     meta: "09.05 점심 후보"
+  },
+  {
+    tag: "Lunch · Cantonese",
+    title: "용봉회 광동 요리",
+    image: "assets/images/yongfenghui-dish.jpg",
+    alt: "용봉회 광동식 새우 요리",
+    meta: "메뉴 후보"
+  },
+  {
+    tag: "Space · Shikumen",
+    title: "용봉회 실내",
+    image: "assets/images/yongfenghui-interior.jpg",
+    alt: "용봉회 스쿠먼 식당 실내",
+    meta: "신천지 다이닝룸"
   },
   {
     tag: "Stay · Classic",
@@ -194,13 +208,15 @@ const bookings = [
     status: "예약 완료",
     statusClass: "confirmed",
     label: "Flights",
-    title: "왕복 항공권",
-    image: "assets/images/lujiazui-night.jpg",
-    alt: "상하이 루자쭈이 스카이라인",
-    summary: "상하이 도착과 귀국 시간이 확정된 이동 기준점.",
+    title: "중국남방항공 왕복",
+    image: "assets/images/flight-china-southern.jpg",
+    alt: "중국남방항공 항공기",
+    summary: "China Southern Airlines 이코노미 왕복 항공권.",
     details: [
-      { label: "가는 편", value: "09.04 12:35 ICN -> 13:45 PVG" },
-      { label: "오는 편", value: "09.07 16:50 PVG -> 20:05 ICN" }
+      { label: "가는 편", value: "26.09.04 인천국제공항 -> 상하이푸동" },
+      { label: "CZ314", value: "12:35 ICN -> 13:45 PVG · 2시간 10분" },
+      { label: "오는 편", value: "26.09.07 상하이푸동 -> 인천국제공항" },
+      { label: "CZ369", value: "16:50 PVG -> 20:05 ICN · 2시간 15분" }
     ]
   },
   {
@@ -236,8 +252,8 @@ const bookings = [
     statusClass: "pending",
     label: "Tickets & Bars",
     title: "추가 예약 체크",
-    image: "assets/images/yuyuan-night.jpg",
-    alt: "밤의 예원",
+    image: "assets/images/shanghai-bar.jpg",
+    alt: "상하이 바 내부",
     summary: "현지 컨디션과 동선에 맞춰 확정할 입장권, 바, 합류 일정.",
     details: [
       { label: "09.05 밤", value: "Phil 합류 후 바/디너 장소 확정" },

@@ -589,6 +589,10 @@ svg {
   filter: saturate(0.9) contrast(1.05);
 }
 
+.booking-card:first-child .booking-card-image img {
+  object-position: left center;
+}
+
 .booking-card-image::after {
   position: absolute;
   inset: 0;
