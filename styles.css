@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 28px;
 }
 
 body {
@@ -291,8 +292,9 @@ svg {
 #flow,
 #itinerary,
 #places,
+#placeGrid,
 #tips {
-  scroll-margin-top: 24px;
+  scroll-margin-top: 28px;
 }
 
 .flow-section,
@@ -919,6 +921,10 @@ svg {
 }
 
 @media (max-width: 960px) {
+  html {
+    scroll-padding-top: 18px;
+  }
+
   .site-header {
     grid-template-columns: auto auto;
     width: min(100% - 30px, 720px);

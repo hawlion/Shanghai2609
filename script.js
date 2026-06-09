@@ -268,6 +268,7 @@ const bookingCards = document.querySelector("#bookingCards");
 const placeGrid = document.querySelector("#placeGrid");
 const menuButton = document.querySelector(".menu-button");
 const mainNav = document.querySelector(".main-nav");
+const pageAnchorLinks = document.querySelectorAll('.skip-link, .brand, .main-nav a[href^="#"]');
 
 function renderEventList(events, maxItems = events.length) {
   return events
@@ -358,9 +359,49 @@ menuButton.addEventListener("click", () => {
   menuButton.setAttribute("aria-expanded", String(isOpen));
 });
 
-mainNav.addEventListener("click", () => {
+function closeMainNav() {
   mainNav.classList.remove("is-open");
   menuButton.setAttribute("aria-expanded", "false");
+}
+
+function getScrollOffset(hash) {
+  if (hash === "#top") {
+    return 0;
+  }
+
+  return window.matchMedia("(max-width: 960px)").matches ? 18 : 28;
+}
+
+function scrollToPageSection(hash) {
+  const target = document.querySelector(hash);
+
+  if (!target) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - getScrollOffset(hash);
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: prefersReducedMotion ? "auto" : "smooth"
+  });
+
+  window.history.pushState(null, "", hash);
+}
+
+pageAnchorLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const hash = link.getAttribute("href");
+
+    if (!hash || hash === "#") {
+      return;
+    }
+
+    event.preventDefault();
+    closeMainNav();
+    scrollToPageSection(hash);
+  });
 });
 
 renderTimeline();
