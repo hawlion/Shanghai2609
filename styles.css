@@ -850,32 +850,41 @@ svg {
 
 .footer-grid {
   display: grid;
+  width: min(1180px, 100%);
+  margin: 0 auto;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.2rem;
 }
 
 .footer-grid article {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
+  grid-template-columns: 42px minmax(150px, 1fr);
   column-gap: 0.85rem;
   align-items: start;
+  min-width: 0;
 }
 
 .footer-grid svg {
+  grid-column: 1;
+  grid-row: 1 / span 2;
   width: 36px;
   height: 36px;
 }
 
 .footer-grid h3 {
+  grid-column: 2;
   margin: 0 0 0.35rem;
   font-size: 1rem;
 }
 
 .footer-grid p {
+  grid-column: 2;
   margin: 0;
   color: rgba(247, 239, 228, 0.82);
   font-size: 0.9rem;
   line-height: 1.45;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .credits {
@@ -901,6 +910,12 @@ svg {
 .credits a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 1180px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
 }
 
 @media (max-width: 960px) {
@@ -1047,8 +1062,7 @@ svg {
 
   .itinerary-grid,
   .booking-grid,
-  .place-grid,
-  .footer-grid {
+  .place-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1138,7 +1152,7 @@ svg {
   }
 
   .footer-grid article {
-    grid-template-columns: 36px minmax(0, 1fr);
+    grid-template-columns: 36px minmax(220px, 1fr);
   }
 }
 
