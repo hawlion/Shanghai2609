@@ -65,8 +65,8 @@ const tripDays = [
     title: "쇼핑 & 귀국",
     timelineTitle: "난징동로 + 귀국",
     summary: "조식과 가벼운 산책, 난징동로 마지막 쇼핑 후 PVG로 이동해 귀국.",
-    image: "assets/images/nanjing-road.jpg",
-    imageAlt: "밤의 난징동로",
+    image: "assets/images/nanjing-road-day.jpg",
+    imageAlt: "낮의 난징동로",
     events: [
       { time: "09:00-10:30", title: "조식 + 가벼운 와이탄 산책" },
       { time: "10:30-12:00", title: "난징동로 마지막 쇼핑" },
@@ -155,8 +155,8 @@ const places = [
   {
     tag: "Shopping · Walk",
     title: "난징동로",
-    image: "assets/images/nanjing-road.jpg",
-    alt: "밤의 난징동로",
+    image: "assets/images/nanjing-road-day.jpg",
+    alt: "낮의 난징동로",
     meta: "마지막 쇼핑"
   },
   {
@@ -201,8 +201,7 @@ const bookings = [
     details: [
       { label: "가는 편", value: "09.04 12:35 ICN -> 13:45 PVG" },
       { label: "오는 편", value: "09.07 16:50 PVG -> 20:05 ICN" }
-    ],
-    note: "항공사명과 예약 식별 정보는 공유 페이지에서 제외"
+    ]
   },
   {
     status: "예약 완료",
@@ -216,8 +215,7 @@ const bookings = [
       { label: "기간", value: "09.04 체크인 -> 09.07 체크아웃" },
       { label: "객실", value: "Deluxe King" },
       { label: "포함", value: "조식 포함 예약" }
-    ],
-    note: "내부 확인 정보는 공유 페이지에서 제외"
+    ]
   },
   {
     status: "예약 예정",
@@ -231,8 +229,7 @@ const bookings = [
       { label: "09.04 디너", value: "Meet the Bund Skyline 우선, BFC 백업" },
       { label: "09.05 점심", value: "龙凤荟 / 용봉회, 11:30-12:00 목표" },
       { label: "09.06 디너", value: "쭈이루 예약 가능 여부 확인" }
-    ],
-    note: "좋은 뷰 좌석 요청, 예약 가능 시간 확인 예정"
+    ]
   },
   {
     status: "확인 예정",
@@ -246,8 +243,7 @@ const bookings = [
       { label: "09.05 밤", value: "Phil 합류 후 바/디너 장소 확정" },
       { label: "예원", value: "야간 입장권 사전 예매 가능 여부 확인" },
       { label: "푸동", value: "Shanghai Tower 전망대는 컨디션 따라 선택" }
-    ],
-    note: "확정되면 이 섹션에 바로 업데이트"
+    ]
   }
 ];
 
@@ -317,7 +313,6 @@ function renderBookingCards() {
                 )
                 .join("")}
             </ul>
-            <p class="booking-note">${booking.note}</p>
           </div>
         </article>
       `

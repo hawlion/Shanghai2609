@@ -376,26 +376,6 @@ svg {
   font-size: 1.03rem;
 }
 
-.outline-link {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-top: 2rem;
-  border: 1px solid rgba(247, 239, 228, 0.55);
-  border-radius: 999px;
-  padding: 0.62rem 1rem;
-  color: var(--cream);
-  font-size: 0.88rem;
-  font-weight: 900;
-}
-
-.outline-link svg {
-  width: 16px;
-  height: 16px;
-}
-
 .timeline-stage {
   position: relative;
   min-height: 1120px;
@@ -528,6 +508,26 @@ svg {
   padding: 18px 0 34px;
 }
 
+.bookings-section {
+  background:
+    radial-gradient(circle at 0 0, rgba(247, 239, 228, 0.055) 0 1px, transparent 1.5px) 0 0 / 21px 21px,
+    linear-gradient(180deg, #111512 0, var(--black) 240px);
+  color: var(--cream);
+  padding: 18px 0 34px;
+}
+
+.bookings-section .section-eyebrow {
+  color: var(--gold);
+}
+
+.bookings-section h2 {
+  color: var(--cream);
+}
+
+.bookings-section .section-rule {
+  background: rgba(247, 239, 228, 0.18);
+}
+
 .section-rule {
   height: 1px;
   margin: 0.55rem 0 1.15rem;
@@ -552,13 +552,13 @@ svg {
   min-height: 520px;
   overflow: hidden;
   flex-direction: column;
-  border: 1px solid rgba(247, 239, 228, 0.2);
+  border: 1px solid rgba(247, 239, 228, 0.18);
   border-radius: var(--radius);
   background:
-    linear-gradient(180deg, rgba(247, 239, 228, 0.08), rgba(247, 239, 228, 0.02)),
-    #0b0d0c;
-  color: var(--cream);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(247, 239, 228, 0.92)),
+    var(--cream);
+  color: var(--black);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
 }
 
 .booking-card::before {
@@ -572,7 +572,7 @@ svg {
 }
 
 .booking-card--confirmed::before {
-  background: var(--gold);
+  background: var(--red);
 }
 
 .booking-card-image {
@@ -593,7 +593,7 @@ svg {
   position: absolute;
   inset: 0;
   content: "";
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(7, 8, 7, 0.58));
+  background: linear-gradient(180deg, rgba(8, 8, 7, 0.02), rgba(8, 8, 7, 0.26));
 }
 
 .booking-status {
@@ -601,10 +601,10 @@ svg {
   right: 0.8rem;
   bottom: 0.7rem;
   z-index: 1;
-  border: 1px solid rgba(247, 239, 228, 0.45);
+  border: 1px solid rgba(247, 239, 228, 0.42);
   border-radius: 999px;
-  background: rgba(7, 8, 7, 0.72);
-  padding: 0.34rem 0.68rem;
+  background: rgba(126, 16, 16, 0.92);
+  padding: 0.36rem 0.7rem;
   color: var(--cream);
   font-size: 0.74rem;
   font-weight: 900;
@@ -612,8 +612,8 @@ svg {
 }
 
 .booking-card--confirmed .booking-status {
-  border-color: rgba(215, 181, 107, 0.8);
-  color: var(--gold);
+  border-color: rgba(247, 239, 228, 0.5);
+  color: var(--cream);
 }
 
 .booking-card-body {
@@ -632,19 +632,19 @@ svg {
 }
 
 .booking-card--confirmed .booking-kicker {
-  color: var(--gold);
+  color: var(--red);
 }
 
 .booking-card h3 {
   margin: 0;
-  color: var(--cream);
+  color: var(--black);
   font-size: clamp(1.16rem, 2vw, 1.5rem);
   line-height: 1.1;
 }
 
 .booking-summary {
   margin: 0.72rem 0 0;
-  color: rgba(247, 239, 228, 0.72);
+  color: var(--ink-muted);
   font-size: 0.88rem;
 }
 
@@ -657,14 +657,14 @@ svg {
 }
 
 .booking-detail-list li {
-  border-top: 1px solid rgba(247, 239, 228, 0.16);
+  border-top: 1px solid rgba(160, 24, 24, 0.18);
   padding: 0.72rem 0;
 }
 
 .booking-detail-list span {
   display: block;
   margin-bottom: 0.16rem;
-  color: var(--gold);
+  color: var(--red);
   font-size: 0.72rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -672,19 +672,10 @@ svg {
 
 .booking-detail-list strong {
   display: block;
-  color: rgba(247, 239, 228, 0.88);
+  color: rgba(8, 8, 7, 0.82);
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.36;
-}
-
-.booking-note {
-  margin: auto 0 0;
-  border-top: 1px solid rgba(160, 24, 24, 0.42);
-  padding-top: 0.8rem;
-  color: rgba(247, 239, 228, 0.58);
-  font-size: 0.78rem;
-  font-weight: 700;
 }
 
 .day-card {
