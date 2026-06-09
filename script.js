@@ -81,52 +81,111 @@ const tripDays = [
 
 const places = [
   {
-    tag: "Day 1",
+    tag: "Day 1 · Walk",
     title: "와이탄 & 락번드",
     image: "assets/images/bund-night.jpg",
-    alt: "상하이 와이탄 야경"
+    alt: "상하이 와이탄 야경",
+    size: "feature",
+    meta: "도착일 첫 산책"
   },
   {
-    tag: "Day 2",
+    tag: "Dinner · Fujian",
+    title: "Meet the Bund",
+    image: "assets/images/meet-the-bund-1.jpg",
+    alt: "Meet the Bund 대표 요리",
+    size: "feature",
+    meta: "09.04 디너 우선 예약"
+  },
+  {
+    tag: "Day 2 · Walk",
     title: "신천지",
     image: "assets/images/xintiandi.jpg",
-    alt: "상하이 신천지 거리"
+    alt: "상하이 신천지 거리",
+    meta: "오전 산책"
   },
   {
-    tag: "Night",
+    tag: "Night · Visit",
     title: "예원 야경",
     image: "assets/images/yuyuan-night.jpg",
-    alt: "예원 야경"
+    alt: "예원 야경",
+    meta: "저녁 방문"
   },
   {
-    tag: "Day 3",
+    tag: "Day 3 · Skyline",
     title: "루자쭈이",
     image: "assets/images/lujiazui-night.jpg",
-    alt: "루자쭈이 스카이라인"
+    alt: "루자쭈이 스카이라인",
+    meta: "푸동 하이라이트"
   },
   {
-    tag: "Dinner",
-    title: "Meet the Bund",
-    image: "assets/images/squirrel-fish.jpg",
-    alt: "중식 생선 요리"
-  },
-  {
-    tag: "Lunch",
+    tag: "Lunch · Shanghai",
     title: "龙凤荟 / 용봉회",
-    image: "assets/images/shanghai-noodles.jpg",
-    alt: "상하이식 면 요리"
+    image: "assets/images/xiaolongbao.jpg",
+    alt: "샤오롱바오",
+    meta: "09.05 점심 후보"
   },
   {
-    tag: "Option",
+    tag: "Stay · Classic",
+    title: "Fairmont Peace Hotel",
+    image: "assets/images/fairmont-peace.jpg",
+    alt: "상하이 페어몬트 피스 호텔",
+    meta: "와이탄 베이스"
+  },
+  {
+    tag: "Dinner · Mood",
+    title: "Meet the Bund 무드",
+    image: "assets/images/meet-the-bund-10.jpg",
+    alt: "Meet the Bund 빨간 벽과 조명",
+    meta: "공간 분위기"
+  },
+  {
+    tag: "Option · Pop culture",
     title: "The Gundam Base",
     image: "assets/images/gundam-shanghai.jpg",
-    alt: "상하이 건담 조형물"
+    alt: "상하이 건담 조형물",
+    meta: "Day 3 후보"
   },
   {
-    tag: "Bar",
+    tag: "View · Option",
+    title: "Shanghai Tower",
+    image: "assets/images/shanghai-tower-view.jpg",
+    alt: "상하이 타워 전망",
+    meta: "전망대 또는 휴식"
+  },
+  {
+    tag: "Shopping · Walk",
+    title: "난징동로",
+    image: "assets/images/nanjing-road.jpg",
+    alt: "밤의 난징동로",
+    meta: "마지막 쇼핑"
+  },
+  {
+    tag: "Dinner · Shanghai",
+    title: "쭈이루",
+    image: "assets/images/squirrel-fish.jpg",
+    alt: "상하이식 생선 요리",
+    meta: "09.06 디너 후보"
+  },
+  {
+    tag: "Bar · Rooftop",
     title: "VUE Bar",
     image: "assets/images/rooftop-bar.jpg",
-    alt: "상하이 루프탑 바 전망"
+    alt: "상하이 루프탑 바 전망",
+    meta: "Phil 합류 후 후보"
+  },
+  {
+    tag: "Option · Street",
+    title: "우캉루",
+    image: "assets/images/wukang-road.jpg",
+    alt: "상하이 우캉루 거리",
+    meta: "여유 있을 때"
+  },
+  {
+    tag: "Local · Bite",
+    title: "상하이 로컬 면",
+    image: "assets/images/shanghai-noodles.jpg",
+    alt: "상하이식 면 요리",
+    meta: "가벼운 식사 후보"
   }
 ];
 
@@ -165,8 +224,8 @@ const bookings = [
     statusClass: "planned",
     label: "Dining",
     title: "식당 예약 큐",
-    image: "assets/images/squirrel-fish.jpg",
-    alt: "상하이 중식 요리",
+    image: "assets/images/meet-the-bund-1.jpg",
+    alt: "Meet the Bund 대표 요리",
     summary: "첫날 파인다이닝과 마지막 디너를 중심으로 예약 우선순위를 정리.",
     details: [
       { label: "09.04 디너", value: "Meet the Bund Skyline 우선, BFC 백업" },
@@ -270,11 +329,12 @@ function renderPlaces() {
   placeGrid.innerHTML = places
     .map(
       (place) => `
-        <figure class="place-card">
+        <figure class="place-card place-card--${place.size || "standard"}">
           <img src="${place.image}" alt="${place.alt}">
           <figcaption>
             <span>${place.tag}</span>
             <strong>${place.title}</strong>
+            ${place.meta ? `<em>${place.meta}</em>` : ""}
           </figcaption>
         </figure>
       `
