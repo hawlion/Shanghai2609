@@ -130,8 +130,70 @@ const places = [
   }
 ];
 
+const bookings = [
+  {
+    status: "예약 완료",
+    statusClass: "confirmed",
+    label: "Flights",
+    title: "왕복 항공권",
+    image: "assets/images/lujiazui-night.jpg",
+    alt: "상하이 루자쭈이 스카이라인",
+    summary: "상하이 도착과 귀국 시간이 확정된 이동 기준점.",
+    details: [
+      { label: "가는 편", value: "09.04 12:35 ICN -> 13:45 PVG" },
+      { label: "오는 편", value: "09.07 16:50 PVG -> 20:05 ICN" }
+    ],
+    note: "항공사명과 예약 식별 정보는 공유 페이지에서 제외"
+  },
+  {
+    status: "예약 완료",
+    statusClass: "confirmed",
+    label: "Hotel",
+    title: "Fairmont Peace Hotel",
+    image: "assets/images/fairmont-peace.jpg",
+    alt: "상하이 페어몬트 피스 호텔",
+    summary: "와이탄과 난징동로를 바로 쓰는 이번 여행의 베이스.",
+    details: [
+      { label: "기간", value: "09.04 체크인 -> 09.07 체크아웃" },
+      { label: "객실", value: "Deluxe King" },
+      { label: "포함", value: "조식 포함 예약" }
+    ],
+    note: "내부 확인 정보는 공유 페이지에서 제외"
+  },
+  {
+    status: "예약 예정",
+    statusClass: "planned",
+    label: "Dining",
+    title: "식당 예약 큐",
+    image: "assets/images/squirrel-fish.jpg",
+    alt: "상하이 중식 요리",
+    summary: "첫날 파인다이닝과 마지막 디너를 중심으로 예약 우선순위를 정리.",
+    details: [
+      { label: "09.04 디너", value: "Meet the Bund Skyline 우선, BFC 백업" },
+      { label: "09.05 점심", value: "龙凤荟 / 용봉회, 11:30-12:00 목표" },
+      { label: "09.06 디너", value: "쭈이루 예약 가능 여부 확인" }
+    ],
+    note: "좋은 뷰 좌석 요청, 예약 가능 시간 확인 예정"
+  },
+  {
+    status: "확인 예정",
+    statusClass: "pending",
+    label: "Tickets & Bars",
+    title: "추가 예약 체크",
+    image: "assets/images/yuyuan-night.jpg",
+    alt: "밤의 예원",
+    summary: "현지 컨디션과 동선에 맞춰 확정할 입장권, 바, 합류 일정.",
+    details: [
+      { label: "09.05 밤", value: "Phil 합류 후 바/디너 장소 확정" },
+      { label: "예원", value: "야간 입장권 사전 예매 가능 여부 확인" },
+      { label: "푸동", value: "Shanghai Tower 전망대는 컨디션 따라 선택" }
+    ],
+    note: "확정되면 이 섹션에 바로 업데이트"
+  }
+];
+
 const timelineList = document.querySelector("#timelineList");
-const itineraryCards = document.querySelector("#itineraryCards");
+const bookingCards = document.querySelector("#bookingCards");
 const placeGrid = document.querySelector("#placeGrid");
 const menuButton = document.querySelector(".menu-button");
 const mainNav = document.querySelector(".main-nav");
@@ -171,18 +233,32 @@ function renderTimeline() {
     .join("");
 }
 
-function renderItineraryCards() {
-  itineraryCards.innerHTML = tripDays
+function renderBookingCards() {
+  bookingCards.innerHTML = bookings
     .map(
-      (day) => `
-        <article class="day-card">
-          <img src="${day.cardImage || day.image}" alt="${day.imageAlt}">
-          <div class="day-card-body">
-            <p class="day-card-kicker">${day.label} · ${day.date}</p>
-            <h3>${day.title}</h3>
-            <ul class="card-event-list">
-              ${renderEventList(day.events)}
+      (booking) => `
+        <article class="booking-card booking-card--${booking.statusClass}">
+          <figure class="booking-card-image">
+            <img src="${booking.image}" alt="${booking.alt}">
+            <span class="booking-status">${booking.status}</span>
+          </figure>
+          <div class="booking-card-body">
+            <p class="booking-kicker">${booking.label}</p>
+            <h3>${booking.title}</h3>
+            <p class="booking-summary">${booking.summary}</p>
+            <ul class="booking-detail-list">
+              ${booking.details
+                .map(
+                  (detail) => `
+                    <li>
+                      <span>${detail.label}</span>
+                      <strong>${detail.value}</strong>
+                    </li>
+                  `
+                )
+                .join("")}
             </ul>
+            <p class="booking-note">${booking.note}</p>
           </div>
         </article>
       `
@@ -217,5 +293,5 @@ mainNav.addEventListener("click", () => {
 });
 
 renderTimeline();
-renderItineraryCards();
+renderBookingCards();
 renderPlaces();

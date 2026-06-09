@@ -348,6 +348,15 @@ svg {
   text-transform: uppercase;
 }
 
+.section-eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 .about-copy h2::after,
 .section-rule::after {
   display: block;
@@ -529,6 +538,153 @@ svg {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.booking-card {
+  position: relative;
+  display: flex;
+  min-height: 520px;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(247, 239, 228, 0.2);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(247, 239, 228, 0.08), rgba(247, 239, 228, 0.02)),
+    #0b0d0c;
+  color: var(--cream);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+.booking-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  content: "";
+  background: var(--red);
+}
+
+.booking-card--confirmed::before {
+  background: var(--gold);
+}
+
+.booking-card-image {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1.42 / 1;
+  overflow: hidden;
+}
+
+.booking-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.05);
+}
+
+.booking-card-image::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(7, 8, 7, 0.58));
+}
+
+.booking-status {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.7rem;
+  z-index: 1;
+  border: 1px solid rgba(247, 239, 228, 0.45);
+  border-radius: 999px;
+  background: rgba(7, 8, 7, 0.72);
+  padding: 0.34rem 0.68rem;
+  color: var(--cream);
+  font-size: 0.74rem;
+  font-weight: 900;
+  backdrop-filter: blur(12px);
+}
+
+.booking-card--confirmed .booking-status {
+  border-color: rgba(215, 181, 107, 0.8);
+  color: var(--gold);
+}
+
+.booking-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.05rem 1.05rem 1.12rem;
+}
+
+.booking-kicker {
+  margin: 0 0 0.28rem;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.booking-card--confirmed .booking-kicker {
+  color: var(--gold);
+}
+
+.booking-card h3 {
+  margin: 0;
+  color: var(--cream);
+  font-size: clamp(1.16rem, 2vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.booking-summary {
+  margin: 0.72rem 0 0;
+  color: rgba(247, 239, 228, 0.72);
+  font-size: 0.88rem;
+}
+
+.booking-detail-list {
+  display: grid;
+  gap: 0;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.booking-detail-list li {
+  border-top: 1px solid rgba(247, 239, 228, 0.16);
+  padding: 0.72rem 0;
+}
+
+.booking-detail-list span {
+  display: block;
+  margin-bottom: 0.16rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.booking-detail-list strong {
+  display: block;
+  color: rgba(247, 239, 228, 0.88);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.36;
+}
+
+.booking-note {
+  margin: auto 0 0;
+  border-top: 1px solid rgba(160, 24, 24, 0.42);
+  padding-top: 0.8rem;
+  color: rgba(247, 239, 228, 0.58);
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .day-card {
@@ -875,9 +1031,14 @@ svg {
   }
 
   .itinerary-grid,
+  .booking-grid,
   .place-grid,
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-card {
+    min-height: 480px;
   }
 
   .credits ul {
@@ -926,6 +1087,7 @@ svg {
   }
 
   .itinerary-grid,
+  .booking-grid,
   .place-grid,
   .footer-grid,
   .credits ul {
@@ -938,6 +1100,10 @@ svg {
 
   .day-card .event-row {
     grid-template-columns: 78px minmax(0, 1fr);
+  }
+
+  .booking-card {
+    min-height: auto;
   }
 
   .place-card,
