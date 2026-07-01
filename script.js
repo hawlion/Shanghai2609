@@ -2,9 +2,9 @@ const tripDays = [
   {
     label: "Day 1",
     date: "09.04 (금)",
-    title: "도착 & 와이탄의 밤",
-    timelineTitle: "도착일 + Meet the Bund",
-    summary: "PVG 도착 후 Fairmont에 체크인하고 와이탄과 락번드를 걸은 뒤 첫날 밤 디너로 진입.",
+    title: "도착 & BFC 디너",
+    timelineTitle: "도착일 + Meet the Bund BFC",
+    summary: "PVG 도착 후 Fairmont에 체크인하고 와이탄과 락번드를 짧게 걸은 뒤 확정된 BFC 디너로 진입.",
     image: "assets/images/bund-night.jpg",
     imageAlt: "상하이 와이탄 야경",
     events: [
@@ -12,10 +12,10 @@ const tripDays = [
       { time: "13:45", title: "PVG 도착" },
       { time: "14:30-15:30", title: "PVG -> Fairmont Peace Hotel" },
       { time: "15:30-16:10", title: "체크인, 짐 정리, 빠른 정비" },
-      { time: "16:10-18:10", title: "와이탄 + 락번드 구경" },
-      { time: "18:10-18:30", title: "식당 이동" },
-      { time: "18:30-21:00", title: "Meet the Bund 디너" },
-      { time: "21:00-22:30", title: "호텔 복귀 후 바 또는 가벼운 산책" }
+      { time: "16:10-17:20", title: "와이탄 + 락번드 짧게 구경" },
+      { time: "17:20-17:45", title: "정비 후 BFC 이동" },
+      { time: "18:00-20:30", title: "Meet the Bund BFC 개인 디너" },
+      { time: "20:30-22:30", title: "호텔 복귀 후 바 또는 가벼운 산책" }
     ]
   },
   {
@@ -94,7 +94,7 @@ const places = [
     image: "assets/images/meet-the-bund-1.jpg",
     alt: "Meet the Bund 대표 요리",
     size: "feature",
-    meta: "09.04 디너 우선 예약"
+    meta: "09.04 디너 예약 확정"
   },
   {
     tag: "Day 2 · Walk",
@@ -234,15 +234,15 @@ const bookings = [
     ]
   },
   {
-    status: "예약 예정",
-    statusClass: "planned",
+    status: "예약 완료",
+    statusClass: "confirmed",
     label: "Dining",
-    title: "식당 예약 큐",
+    title: "Meet the Bund BFC",
     image: "assets/images/meet-the-bund-1.jpg",
     alt: "Meet the Bund 대표 요리",
-    summary: "첫날 파인다이닝과 마지막 디너를 중심으로 예약 우선순위를 정리.",
+    summary: "첫날 저녁 18:00 BFC 지점 개인 디너 예약 확정.",
     details: [
-      { label: "09.04 디너", value: "Meet the Bund Skyline 우선, BFC 백업" },
+      { label: "09.04 디너", value: "Meet the Bund BFC 18:00 예약 확정" },
       { label: "09.05 점심", value: "龙凤荟 / 용봉회, 11:30-12:00 목표" },
       { label: "09.06 디너", value: "쭈이루 예약 가능 여부 확인" }
     ]
